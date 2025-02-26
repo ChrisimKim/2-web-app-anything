@@ -23,24 +23,27 @@
 
     <table class="app labels">
         <tr>
-            <th><img src="{{ url_for('static', filename='images/Magnifying.png') }}" alt="Magnifying Icon" class="magnifying-img"></th> 
+            <th><img src="{{ url_for('static', filename='images/Edit.png') }}" alt="Edit Icon" class="edit-img"></th> 
             <th>Company</th>
             <th>Role</th>
             <th>Status</th>
             <th>Date</th>
+            <th><img src="{{ url_for('static', filename='images/Rubbish.png') }}" alt="Rubbish Icon" class="rubbish-img"></th> 
+
+
         </tr>
         {% for app in applications %}
         <tr class="app">
             <td>
-                <!-- Hidden checkbox to control the popup -->
                 <input type="checkbox" id="popup-toggle-{{ loop.index }}" class="popup-toggle">
                 <label for="popup-toggle-{{ loop.index }}">
-                    <img src="{{ url_for('static', filename='images/Magnifying.png') }}" alt="Search Icon" class="magnifying-img">
+                    <img src="{{ url_for('static', filename='images/Edit.png') }}" alt="Edit Icon" class="edit-img">
                 </label>
 
                 <!-- Popup content -->
                 <div class="popup-content">
                     <label for="popup-toggle-{{ loop.index }}" class="close-button">✖</label>
+
 
                     <div class="form-group">
                         <label>Company</label>
@@ -68,8 +71,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Status</label>
-                        <p class="input-pink2">{{ app.status }}</p>
+                        <label for="status">Status</label>
+                        <select id="status" name="status" class="input-pink2" required>
+                            <option value="">Select Status</option>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview Scheduled</option>
+                            <option value="offer">Offer Received</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
                     </div>
 
                     <div class="form-group">

@@ -98,6 +98,10 @@ th:nth-child(5) {
     background-color: #FFECDE;
 }
 
+th:nth-child(6) {
+    background-color: #FFB0B2;
+}
+
 .app td { /* inputs */
     padding: 10px;
     border-bottom: 1px solid #ddd;
@@ -114,7 +118,12 @@ th:nth-child(5) {
     cursor: pointer;
 }
 
-.magnifying-img {
+.edit-img {
+    width: 14px;
+    height: 14px;
+}
+
+.rubbish-img {
     width: 14px;
     height: 14px;
 }
