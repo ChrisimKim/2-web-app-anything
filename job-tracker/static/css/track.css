@@ -209,17 +209,3 @@ th:nth-child(5) {
 .input-orange {
     background-color: #FFECDE;
 }
-
-.input-blue2 {
-    background-color: #E4EEFF;
-}
-
-.input-blue2 a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
-.input-blue2 a:hover {
-    text-decoration: underline;
-}
