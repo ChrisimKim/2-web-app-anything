@@ -9,23 +9,25 @@
 
     <section class="stats">
         <div class="weekly">
+            <img src="{{ url_for('static', filename='images/Progress.png') }}" alt="Progress Icon" class="progress-img">
             <p>Total Jobs Applied This Week:</p>
             <h2>{{ week }}</h2>
         </div>
         <div class="monthly">
+            <img src="{{ url_for('static', filename='images/Progress.png') }}" alt="Progress Icon" class="progress-img">
             <p>Total Jobs Applied This Month:</p>
             <h2>{{ month }}</h2>
         </div>
     </section>
 
-    <section class="monthly-insights">
-        <h3>Monthly Insights</h3>
+    <section class="overall-insights">
+        <h3>Overall Insights</h3>
         <p>Out of <strong>{{ total }}</strong> total jobs applied, you have received:</p>
 
         <div class="insights">
             <div class="accepted">
                 <h2>{{ accepted }}</h2>
-                <p>Accepted</p>
+                <p>Offer Received</p>
             </div>
             <div class="interviewing">
                 <h2>{{ interviewing }}</h2>

@@ -4,20 +4,21 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/addapplication.css') }}">
 
-    <!-- Main Container -->
-    <main class="addapplication-container">
-        <!-- Display Current Date -->
-        <h2 class="date">{{ current_date }}</h2>
+<!-- Main Container -->
+<main class="addapplication-container">
+    <!-- Display Current Date -->
+    <h2 class="date">{{ current_date }}</h2>
 
-        <!-- Add New Card -->
-        <div class="add-card">
-            <a href="{{ url_for('addnew') }}" class="add-text-link">
-                <span class="add-icon">+</span>
-                <span class="add-text">Add New</span>
-            </a>
-        </div>
+    <!-- Add New Card -->
+    <div class="add-card">
+        <a href="{{ url_for('addnew') }}" class="add-text-link">
+            <span class="add-icon">+</span>
+            <span class="add-text">Add New</span>
+        </a>
+    </div>
 
-        <!-- Description Text -->
-        <p class="description">You can view your added jobs under your calendar</p>
-    </main>
+    <!-- Description Text -->
+    <p class="description">You can view your added jobs under the <a href="{{ url_for('track') }}">job tracking page</a>
+    </p>
+</main>
 {% endblock %}

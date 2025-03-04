@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
     font-family: 'Arial', sans-serif;
     background-color: white;
@@ -21,7 +22,7 @@ main {
 /* SEARCH BAR */
 .search-container {
     margin-top: 70px;
-    align-items: center; 
+    align-items: center;
     margin-bottom: 20px;
     width: 100%;
     display: flex;
@@ -29,7 +30,7 @@ main {
     align-items: center;
     position: relative;
 }
- 
+
 .search-container select {
     width: 300px;
     padding: 10px;
@@ -45,15 +46,15 @@ main {
     -moz-appearance: none;
 }
 
-.search-container::after { 
+.search-container::after {
     content: "";
     margin-top: 5px;
     position: relative;
     right: 35px;
     color: #888;
-    width: 13px; 
+    width: 13px;
     height: 13px;
-    background-image: url('/static/images/Dropdown.png'); 
+    background-image: url('/static/images/Dropdown.png');
     background-repeat: no-repeat;
     pointer-events: none;
 }
@@ -64,7 +65,8 @@ main {
     margin-top: 20px;
 }
 
-.app th { /* labels */
+.app th {
+    /* labels */
     font-size: 11px;
     font-weight: normal;
     text-align: left;
@@ -102,14 +104,19 @@ th:nth-child(6) {
     background-color: #FFB0B2;
 }
 
+<<<<<<< HEAD
 .app td { /* inputs */
+=======
+.app td {
+    /* inputs */
+>>>>>>> 924a1818df85016730b25a8d35733d727abdf723
     padding: 10px;
     border-bottom: 1px solid #ddd;
     font-size: 11px;
     gap: 20px;
 }
 
-.app tr:nth-child(even) { 
+.app tr:nth-child(even) {
     background-color: #F0F4F9;
 }
 
@@ -149,13 +156,19 @@ th:nth-child(6) {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    border: 1px solid #eaeaea;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-.popup-toggle:checked + label + .popup-content {
+.popup-toggle:checked+label+.popup-content {
     display: flex;
+}
+
+.delete-btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
 }
 
 .close-button {
@@ -166,23 +179,34 @@ th:nth-child(6) {
     cursor: pointer;
 }
 
+.close-img {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
 .popup-content .form-group {
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-right: 27px;
+    margin-left: 4px;
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
+    border: none;
     text-align: left;
 }
 
-.popup-content .form-group label { /* labels, outside*/
+.popup-content .form-group label {
+    /* labels, outside*/
+    margin-top: 5px;
     font-size: 14px;
     color: #333;
     margin-bottom: 2px;
     display: block;
 }
 
-.popup-content .form-group p { /* data, inside */
+.popup-content .form-group input,
+.popup-content .form-group select {
+    /* data (text), inside */
     width: 100%;
     padding: 10px;
     padding-left: 20px;
@@ -191,30 +215,70 @@ th:nth-child(6) {
     color: #333;
 }
 
-.input-pink { /* Colors */
+.input-pink {
+    /* colors */
     background-color: #FEEBEE;
+    border: none;
+    max-width: 315px;
 }
 
 .input-blue {
     background-color: #DEF8FC;
+    border: none;
+    max-width: 315px;
 }
 
 .input-yellow {
     background-color: #FFFAE3;
+    border: none;
 }
 
 .input-green {
     background-color: #EFFDE7;
+    border: none;
+    max-width: 315px;
 }
 
 .input-purple {
     background-color: #EDE4FD;
+    border: none;
 }
 
 .input-pink2 {
     background-color: #FFEBFC;
+    border: none;
 }
 
 .input-orange {
     background-color: #FFECDE;
+    border: none;
+    max-width: 315px;
 }
+<<<<<<< HEAD
+=======
+
+.input-blue2 {
+    background-color: #E4EEFF;
+    border: none;
+    max-width: 315px;
+}
+
+.save-button {
+    background-color: #C2E1FF;
+    color: #333;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 15px;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 50px;
+
+}
+
+.save-button:hover {
+    background-color: #b3d4ff;
+}
+>>>>>>> 924a1818df85016730b25a8d35733d727abdf723

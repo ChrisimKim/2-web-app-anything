@@ -32,6 +32,24 @@ body, html {
     animation: fadeIn 0.5s ease;
 }
 
+/* Center the flash message inside the white box */
+.login-box ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-box ul li {
+    color: rgb(145, 187, 255); /* You can customize the color */
+    font-weight: bold;
+    display: inline-block;
+    background-color: #f8f8f8;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
 /* Close Button */
 .close {
     position: absolute;

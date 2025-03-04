@@ -6,11 +6,14 @@
 <main>
     <form method="POST" class="search" action="/track">
         <div class="search-container">
-            <select name="status" id="status">
+            <!-- keep the onchange, needed for backend form  -->
+            <select name="status" id="status" onchange="this.form.submit()">
                 <option value="" disabled selected hidden>Search by...</option>
                 <optgroup label="Status">
                     <option value="Applied">Applied</option>
-                    <option value="Interviewing">Interviewing</option>
+                    <option value="Interview Scheduled">Interview Scheduled</option>
+                    <option value="Offer Received">Offer Received</option>
+                    <option value="Accepted">Accepted</option>
                     <option value="Rejected">Rejected</option>
                 </optgroup>
                 <optgroup label="Date">
@@ -22,6 +25,7 @@
     </form>
 
     <table class="app labels">
+<<<<<<< HEAD
         <tr>
             <th><img src="{{ url_for('static', filename='images/Edit.png') }}" alt="Edit Icon" class="edit-img"></th> 
             <th>Company</th>
@@ -39,37 +43,110 @@
                 <label for="popup-toggle-{{ loop.index }}">
                     <img src="{{ url_for('static', filename='images/Edit.png') }}" alt="Edit Icon" class="edit-img">
                 </label>
+=======
+        <thead>
+            <tr>
+                <th><img src="{{ url_for('static', filename='images/Edit.png') }}" alt="Edit Icon" class="edit-img">
+                </th>
+                <th>Company</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th><img src="{{ url_for('static', filename='images/Rubbish.png') }}" alt="Rubbish Icon"
+                        class="rubbish-img"></th>
+            </tr>
+        </thead>
+>>>>>>> 924a1818df85016730b25a8d35733d727abdf723
 
-                <!-- Popup content -->
-                <div class="popup-content">
-                    <label for="popup-toggle-{{ loop.index }}" class="close-button">✖</label>
+        <tbody>
+            {% for app in applications %}
+            <tr class="app">
+                <td>
+                    <input type="checkbox" id="popup-toggle-{{ loop.index }}" class="popup-toggle">
+                    <label for="popup-toggle-{{ loop.index }}">
+                        <img src="{{ url_for('static', filename='images/Edit.png') }}" alt="Edit Icon" class="edit-img">
+                    </label>
+                    <!-- Popup content -->
+                    <form class="popup-content" action="{{ url_for('edit') }}" method="POST">
+                        <!-- Keep for backend id fetching -->
+                        <input type="hidden" id="app_id" name="app_id" value="{{ app._id or '' }}">
 
+<<<<<<< HEAD
 
                     <div class="form-group">
                         <label>Company</label>
                         <p class="input-pink">{{ app.company }}</p>
                     </div>
+=======
+                        <label for="popup-toggle-{{ loop.index }}" class="close-button">
+                            <img src="{{ url_for('static', filename='images/Exit.png') }}" alt="Close"
+                                class="close-img">
+                        </label>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" value="{{ app.company }}" class="input-pink"
+                                required>
+                        </div>
+>>>>>>> 924a1818df85016730b25a8d35733d727abdf723
 
-                    <div class="form-group">
-                        <label>Role</label>
-                        <p class="input-blue">{{ app.role }}</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <input type="text" id="role" name="role" value="{{ app.role }}" class="input-blue" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label>Category</label>
-                        <p class="input-yellow">{{ app.category }}</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" name="category" value="{{ app.category }}" class="input-yellow"
+                                required>
+                                <option value="">Select Category</option>
+                                {% if app.category == 'full-time' %}
+                                <option value="full-time" selected>Full-Time</option>
+                                {% else %}
+                                <option value="full-time">Full-Time</option>
+                                {% endif %}
+                                {% if app.category == 'part-time' %}
+                                <option value="part-time" selected>Part-Time</option>
+                                {% else %}
+                                <option value="part-time">Part-Time</option>
+                                {% endif %}
+                                {% if app.category == 'contract' %}
+                                <option value="contract" selected>Contract</option>
+                                {% else %}
+                                <option value="contract">Contract</option>
+                                {% endif %}
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label>Location</label>
-                        <p class="input-green">{{ app.location }}</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" value="{{ app.location }}"
+                                class="input-green" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label>Flexibility</label>
-                        <p class="input-purple">{{ app.flexibility }}</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="flexibility">Flexibility</label>
+                            <select id="flexibility" name="flexibility" value="{{ app.flexibility }}"
+                                class="input-purple" required>
+                                <option value="">Select Flexibility</option>
+                                {% if app.flexibility == 'remote' %}
+                                <option value="remote" selected>Remote</option>
+                                {% else %}
+                                <option value="remote">Remote</option>
+                                {% endif %}
+                                {% if app.flexibility == 'onsite' %}
+                                <option value="onsite" selected>On-site</option>
+                                {% else %}
+                                <option value="onsite">On-site</option>
+                                {% endif %}
+                                {% if app.flexibility == 'hybrid' %}
+                                <option value="hybrid" selected>Hybrid</option>
+                                {% else %}
+                                <option value="hybrid">Hybrid</option>
+                                {% endif %}
+                            </select>
+                        </div>
 
+<<<<<<< HEAD
                     <div class="form-group">
                         <label for="status">Status</label>
                         <select id="status" name="status" class="input-pink2" required>
@@ -93,6 +170,78 @@
             <td class="date">{{ app.date }}</td>
         </tr>
         {% endfor %}
+=======
+
+
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select id="status" name="status" class="input-pink2" required>
+                                <option value="">Select Status</option>
+                                {% if app.status == 'Applied' %}
+                                <option value="Applied" selected>Applied</option>
+                                {% else %}
+                                <option value="Applied">Applied</option>
+                                {% endif %}
+                                {% if app.status == 'Interview Scheduled' %}
+                                <option value="Interview Scheduled" selected>Interview Scheduled</option>
+                                {% else %}
+                                <option value="Interview Scheduled">Interview Scheduled</option>
+                                {% endif %}
+                                {% if app.status == 'Offer Received' %}
+                                <option value="Offer Received" selected>Offer Received</option>
+                                {% else %}
+                                <option value="Offer Received">Offer Received</option>
+                                {% endif %}
+                                {% if app.status == 'Accepted' %}
+                                <option value="Accepted" selected>Accepted</option>
+                                {% else %}
+                                <option value="Accepted">Accepted</option>
+                                {% endif %}
+                                {% if app.status == 'Rejected' %}
+                                <option value="Rejected" selected>Rejected</option>
+                                {% else %}
+                                <option value="Rejected">Rejected</option>
+                                {% endif %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="text" id="date" name="date" value="{{ app.date }}" class=" input-orange"
+                                placeholder="MM/DD/YYYY" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="applied-link">Applied Link</label>
+                            <input type="url" id="applied-link" name="applied-link" value="{{ app.link }}"
+                                class="input-blue2" required>
+                        </div>
+
+                        <button type="submit" class="save-button">Save</button>
+                    </form>
+                </td>
+
+                <td class="company">{{ app.company }}</td>
+
+                <td class="role">{{ app.role }}</td>
+
+                <td class="status">{{ app.status }}</td>
+
+                <td class="date">{{ app.date }}</td>
+
+                <td>
+                    <form action="{{ url_for('delete') }}" method="POST">
+                        <input type="hidden" name="app_id" value="{{ app._id }}">
+                        <button type="submit" class="delete-btn">
+                            <img src="{{ url_for('static', filename='images/Rubbish.png') }}" alt="Rubbish Icon"
+                                class="rubbish-img">
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+>>>>>>> 924a1818df85016730b25a8d35733d727abdf723
     </table>
 </main>
 {% endblock %}
