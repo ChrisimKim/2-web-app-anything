@@ -66,7 +66,6 @@ def create_app():
 
     # landing page
     @app.route('/')
-    @login_required
     def landing():
         return render_template("landing.html")
 
